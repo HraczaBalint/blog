@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/posts/{post}', function ($slug) {
-    if(!file_exists($path = __DIR__  . "/../resources/posts/{$slug}.html")) {
-        return redirect('/');
-        //abort(404);
-    }
 
-    $post = cache()->remember("posts.{$slug}", now()->addMinutes(), fn() => file_get_contents($path));
-
-    return view('post', ['post' => $post]);
+    return view('post', [
+        'post' => Post::find($slug)
+    ]);
 })->where('post', '[A-z_\-]+');
