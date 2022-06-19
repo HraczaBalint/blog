@@ -11,7 +11,6 @@
     <?php foreach ($posts as $post) : ?>
         <article>
             <?php echo $post; ?>
-            asd
         </article>
     <?php endforeach; ?>
 </body>
