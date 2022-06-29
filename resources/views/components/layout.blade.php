@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-    <header>
-        @yield('banner')
-    </header>
-
-    @yield('content')
+    {{ $banner }}
+    {{ $slot }}     <!-- default name ( no <x-slot name="..."> required )
 </body>
 </html>

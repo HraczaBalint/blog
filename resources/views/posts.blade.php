@@ -1,10 +1,12 @@
-@extends('layout')
-
-@section('banner')
-    <h1>My blog</h1>
-@endsection
-
-@section('content')
+<x-button class="foo">
+    Press me!
+</x-button>
+<x-layout>
+    <x-slot name="banner">
+        <h1>
+            My blog
+        </h1>
+    </x-slot>
     @foreach ($posts as $post)
     <article class="{{ $loop->even ? 'foobar' : '' }}">
         <h1>
@@ -16,4 +18,4 @@
         </div>
     </article>
     @endforeach
-@endsection
+</x-layout>
