@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-    <?php foreach ($posts as $post) : ?>
-        <article>
+    @foreach ($posts as $post)
+        <article class="{{ $loop->even ? 'foobar' : '' }}">
             <h1>
-                <a href='/posts/<?php echo $post->slug ?>'><?php echo $post->title ?></a>
+                <a href='/posts/{{ $post->slug }}'>{{ $post->title }}</a>
             </h1>
 
             <div>
-                <?php echo $post->excerpt; ?>
+                {{ $post->excerpt }}
             </div>
         </article>
-    <?php endforeach; ?>
+    @endforeach
 </body>
 </html>
