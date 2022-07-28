@@ -21,9 +21,11 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/posts/{post}', function ($id) {
+
+// {post:slug} or fn Post.php -> getRouteKeyName - return 'slug'
+Route::get('/posts/{post:slug}', function (Post $post) {
 
     return view('post', [
-        'post' => Post::findOrFail($id)
+        'post' => $post
     ]);
 });
